@@ -16,18 +16,23 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class DrawFrame extends JFrame{
 	private JLabel label3;
-	private JPanel p1,pcord;
+	private JPanel p1;
+	
 	private JTextField field;
+	private GridBagConstraints gbc;
+	
+	private Rect RT;
+	
+//	private JTextArea TA;
+	
 	private GridBagLayout gb = new GridBagLayout();
 
-	String[] cord_name = {
-			"1st","2nd"
-	};
 	public DrawFrame(){
 		super("test02");
 		
@@ -40,6 +45,25 @@ public class DrawFrame extends JFrame{
 	    p1.add(label3);
 	    gb.setConstraints(p1, gbc);
 	    add(p1,BorderLayout.WEST);
+	    
+		RT = new Rect();
+		/*
+		field = new JTextField();
+	   	field.setEditable(false);
+	   	field.setBorder(BorderFactory.createLineBorder(Color.black));;
+	   	field.setFont(new Font("Arial", Font.PLAIN, 24));
+	   	field.setHorizontalAlignment(JTextField.RIGHT);
+	   	gbc = new GridBagConstraints();
+   		gbc.gridx = 0;
+   		gbc.gridy = 0;
+   		gbc.gridwidth = 4;
+   		gbc.gridheight = 1;
+   		gbc.fill = GridBagConstraints.BOTH;
+   		gbc.insets = new Insets(2,2,2,2);
+   		RT.add(field);
+   		*/	
+		
+	    add(RT);
 	    
 	}
 
