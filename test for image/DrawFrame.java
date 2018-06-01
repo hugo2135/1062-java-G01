@@ -5,6 +5,7 @@ import java.awt.Button;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -23,10 +24,11 @@ import javax.swing.SwingConstants;
 public class DrawFrame extends JFrame{
 	private JLabel label3;
 	private JPanel p1;
+	private JPanel Sou;
 	
 	private JTextField field;
 	private GridBagConstraints gbc;
-	
+	Graphics g;
 	private Rect RT;
 	
 //	private JTextArea TA;
@@ -35,36 +37,27 @@ public class DrawFrame extends JFrame{
 
 	public DrawFrame(){
 		super("test02");
-		
-		Icon bug = new ImageIcon( getClass().getResource( "daniel.PNG" ) );
 		p1 = new JPanel();
-		p1.setLayout(gb);
-		GridBagConstraints gbc = new GridBagConstraints();
+		p1.setLayout(null);
+		
+		// 圖片
+		Icon bug = new ImageIcon( getClass().getResource( "daniel.PNG" ) );
 		label3 = new JLabel(); // JLabel constructor no arguments
+		label3.setBounds(10, 200, 50, 50);
 	    label3.setIcon( bug ); // add icon to JLabel
 	    p1.add(label3);
-	    gb.setConstraints(p1, gbc);
-	    add(p1,BorderLayout.WEST);
 	    
-		RT = new Rect();
-		/*
-		field = new JTextField();
-	   	field.setEditable(false);
-	   	field.setBorder(BorderFactory.createLineBorder(Color.black));;
-	   	field.setFont(new Font("Arial", Font.PLAIN, 24));
-	   	field.setHorizontalAlignment(JTextField.RIGHT);
-	   	gbc = new GridBagConstraints();
-   		gbc.gridx = 0;
-   		gbc.gridy = 0;
-   		gbc.gridwidth = 4;
-   		gbc.gridheight = 1;
-   		gbc.fill = GridBagConstraints.BOTH;
-   		gbc.insets = new Insets(2,2,2,2);
-   		RT.add(field);
-   		*/	
-		
-	    add(RT);
-	    
+		// 對話框
+		JLabel jLabel = new JLabel();
+		jLabel.setText("這裡是文字標籤");
+		jLabel.setBackground(Color.BLUE);
+		jLabel.setBorder(BorderFactory.createLineBorder(Color.black));
+		jLabel.setBounds(10, 350, 460, 50);
+   		p1.add(jLabel);
+//   		g.fillRect(10, 300, 460, 100);
+   		RT = new Rect();
+   		p1.add(RT);
+	    add(p1);
 	}
 
 }
