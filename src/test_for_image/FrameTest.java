@@ -1,4 +1,4 @@
-package test02;
+package test_for_image;
 
 public class FrameTest {
 	public static void main(String[] args) {

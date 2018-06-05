@@ -1,4 +1,4 @@
-package test02;
+package test_for_image;
 
 import javax.swing.JPanel;
 
