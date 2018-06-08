@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.GradientPaint;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import java.awt.geom.Area;
 import java.awt.geom.RoundRectangle2D;
 
@@ -27,27 +28,6 @@ public class Rect{
 		
 	}
 }
-/*
-	private int x,y,width,height;
-	int padding = 10 ;
-	int radius = 5 ;
-	
-	public Rect() {
-		this.x = 10;
-		this.y = 300;
-		this.width = 150;
-		this.height = 30;
-	}
-	
-	public void draw(final Graphics g) {
-		Graphics2D g2D = (Graphics2D) g;
-		g.setColor(Color.BLUE);
-		g2D.fillRect(x,y,width,height);
-		RoundRectangle2D.Double rect = new RoundRectangle2D.Double(x, padding, width, height, radius, radius);
-		Area area = new Area(rect);
-        
-	}
-*/
 
 
 /*

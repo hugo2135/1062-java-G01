@@ -30,15 +30,14 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class DrawFrame extends JFrame implements ActionListener{
-	private JLabel label3;
-	private DrawPanel p1;
-	private JPanel Sou;
+	private JPanel Bigp;
+	private JPanel p1;
+	private JButton start,exit;
 	
+	private DrawPanel p2;
+	private JLabel label3;
 	private JButton ans1,ans2;
 	
-	private JTextField field;
-	private GridBagConstraints gbc;
-	Graphics g;
 	String text_str = "測試";
 	String ans1_str = "測試";
 	String ans2_str = "測試";
@@ -48,23 +47,39 @@ public class DrawFrame extends JFrame implements ActionListener{
 
 	public DrawFrame(){
 		super("test02");
-		p1 = new DrawPanel();
+		Bigp = new JPanel();
+		//開始畫面
+		p1 = new JPanel();
 		p1.setLayout(null);
+		start = new JButton("開始遊戲");
+		start.addActionListener(this);
+		start.setBounds(50, 100, 100, 50);
+		p1.add(start);
+		exit = new JButton("離開遊戲");
+		exit.addActionListener(this);
+		exit.setBounds(50,160,100,50);
+		p1.add(exit);
+		p1.setVisible(true);
+		add(p1);
+		//遊戲畫面
+		p2 = new DrawPanel();
+		p2.setLayout(null);
 		
 		// 圖片
+		/*
 		Icon bug = new ImageIcon( getClass().getResource( "daniel.PNG" ) );
 		label3 = new JLabel(); // JLabel constructor no arguments
 		label3.setBounds(10, 200, 50, 50);
 	    label3.setIcon( bug ); // add icon to JLabel
-	    p1.add(label3);
-	    
+	    p2.add(label3);
+	    */
 		// 對話框
 		JLabel jLabel = new JLabel();
 		jLabel.setText(text_str);
 		jLabel.setBackground(Color.BLUE);
 		jLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		jLabel.setBounds(10, 300, 460, 50);
-   		p1.add(jLabel);
+   		p2.add(jLabel);
    		// 選擇按鈕
    		ans1 = new JButton(ans1_str);
    		ans1.addActionListener(this);
@@ -72,16 +87,24 @@ public class DrawFrame extends JFrame implements ActionListener{
    		ans2 = new JButton(ans2_str);
    		ans2.addActionListener(this);
    		ans2.setBounds(10, 390, 80, 30);
-   		p1.add(ans1);
-   		p1.add(ans2);
-   		
-//   		g.fillRect(10, 300, 460, 100);
-	    add(p1);
+   		p2.add(ans1);
+   		p2.add(ans2);
+   		p2.setVisible(false);
+   		add(p2);
+   		add(p1);
+//   		add(p1);
+//	    add(Bigp);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource()==ans1) {
+		if(e.getSource()==start){
+			System.out.println("start");
+			p1.setVisible(false);
+			System.out.println("start");
+			p2.setVisible(true);
+			System.out.println("start");
+		}else if(e.getSource()==ans1) {
 			System.out.println("bt1");
 			sqrt(1);
 		}else if(e.getSource()==ans2) {
