@@ -9,16 +9,23 @@ import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JPanel;
 
-public class Rect extends JPanel{
+public class Rect{
 	
-	public void paintComponent( Graphics g )
-	   {
-	      super.paintComponent( g ); // call superclass's paintComponent
-//	      this.setBackground( Color.WHITE );
-	      g.setColor( Color.PINK );
-	      g.fillRect(10, 300, 460, 100);
-	      
-	   }
+	private int x,y,width,height;
+	
+	public Rect(int x, int y, int width, int height) {
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+	}
+	
+	public void draw(Graphics g) {
+		Graphics2D g2D = (Graphics2D) g;
+		g.setColor(Color.PINK);
+		g2D.fillRect(x,y,width,height);
+		
+	}
 }
 /*
 	private int x,y,width,height;
