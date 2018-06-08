@@ -16,4 +16,7 @@ public class DrawPanel extends JPanel {
 		super.paintComponent(g);
 		rt.draw(g);
 	}
+	
+
+	
 }
