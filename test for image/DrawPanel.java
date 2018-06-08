@@ -1,4 +1,4 @@
-package test02;
+package game1;
 
 import java.awt.Graphics;
 
