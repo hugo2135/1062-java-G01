@@ -34,7 +34,7 @@ public class DrawFrame extends JFrame implements ActionListener{
 	private JButton start,exit;
 	
 	private DrawPanel p2;
-	private JLabel label3;
+	private JLabel label3,label4;
 	private JButton ans1,ans2,music;
 	private ImageIcon musicIcon;
 	private boolean music_b = false;
@@ -69,14 +69,20 @@ public class DrawFrame extends JFrame implements ActionListener{
 		p2 = new DrawPanel();
 		p2.setLayout(null);
 		
-		// 圖片
-		/*
-		Icon bug = new ImageIcon( getClass().getResource( "daniel.PNG" ) );
+		//主角
+		Icon bug1 = new ImageIcon( getClass().getResource( "大頭貼.PNG" ) );
 		label3 = new JLabel(); // JLabel constructor no arguments
-		label3.setBounds(10, 200, 50, 50);
-	    label3.setIcon( bug ); // add icon to JLabel
+		label3.setBounds(10, 140, 120, 120);
+	    label3.setIcon( bug1 ); // add icon to JLabel
 	    p2.add(label3);
-	    */
+	    
+	    //配角
+	    Icon bug2 = new ImageIcon( getClass().getResource( "大頭貼.PNG" ) );
+		label4 = new JLabel(); // JLabel constructor no arguments
+		label4.setBounds( 350, 10, 120, 120);
+	    label4.setIcon( bug2 ); // add icon to JLabel
+	    p2.add(label4);
+	    
 		// 對話框
 		JLabel jLabel = new JLabel();
 		jLabel.setText(text_str);
@@ -92,12 +98,11 @@ public class DrawFrame extends JFrame implements ActionListener{
    		ans2.addActionListener(this);
    		ans2.setBounds(10, 390, 80, 30);
    		
+   		//音樂控制按鈕
    		musicIcon = new ImageIcon(getClass().getResource("musicicon.jpg"));
-   		
    		music = new JButton(musicIcon);
    		music.addActionListener(this);
-   		music.setBounds(10, 60, 40, 40);
-   		
+   		music.setBounds(0, 0, 40, 40);
    		
    		p2.add(ans1);
    		p2.add(ans2);
