@@ -50,7 +50,7 @@ public class DrawFrame extends JFrame implements ActionListener{
 
 	public DrawFrame(){
 		
-		super("test02");
+		super("Game 01");
 		//開始畫面
 		p1 = new JPanel();
 		p1.setLayout(null);
