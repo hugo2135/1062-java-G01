@@ -84,16 +84,15 @@ public class DrawFrame extends JFrame implements ActionListener{
 		label4.setBounds( 350, 10, 120, 120);
 	    label4.setIcon( bug2 ); // add icon to JLabel
 	    p2.add(label4);
-	    
+
+//		jLabel.setText(text_str);
 		// ¹ï¸Ü®Ø
 		JLabel jLabel = new JLabel();
-//		jLabel.setText(text_str);
 		jLabel.setBackground(Color.BLUE);
 		jLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		jLabel.setBounds(10, 300, 460, 50);
 		
 		sText = new Thread(new Runnable(){
-
 			public void run() {
 				for(int i=0;i<text_str.length();i++) {
 					char c = text_str.charAt(i);
@@ -144,6 +143,7 @@ public class DrawFrame extends JFrame implements ActionListener{
 		}else if(e.getSource()==ans2) {
 			System.out.println("bt2");
 			sqrt(2);
+			
 		}else if(e.getSource()==music) {
 			this.setMusic_b(!music_b);
 			p2.music_open_close(music_b);
