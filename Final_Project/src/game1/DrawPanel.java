@@ -17,7 +17,7 @@ public class DrawPanel extends JPanel {
 		rt = new Rect(5,290,470,140);
 		repaint();
 		
-		String filename = "rudio/level1.mp3";
+		String filename = "rudio/01 永遠同在-神隱少女.mp3";
 		mp3 = new MP3(filename);
 		
 	}
@@ -33,8 +33,6 @@ public class DrawPanel extends JPanel {
 			mp3.resume();
 		}
 	}
-	
-	
 	
 	public void music_start() {
 		musicThread = new Thread() {

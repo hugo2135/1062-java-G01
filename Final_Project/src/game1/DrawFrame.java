@@ -39,7 +39,9 @@ public class DrawFrame extends JFrame implements ActionListener{
 	private ImageIcon musicIcon;
 	private boolean music_b = false;
 	
-	String text_str = "測試";
+	Thread sText;
+	
+	String text_str = "0123456789";
 	String ans1_str = "測試";
 	String ans2_str = "測試";
 //	private JTextArea TA;
@@ -48,7 +50,7 @@ public class DrawFrame extends JFrame implements ActionListener{
 
 	public DrawFrame(){
 		
-		super("test02");
+		super("Game 01");
 		//開始畫面
 		p1 = new JPanel();
 		p1.setLayout(null);
@@ -82,13 +84,28 @@ public class DrawFrame extends JFrame implements ActionListener{
 		label4.setBounds( 350, 10, 120, 120);
 	    label4.setIcon( bug2 ); // add icon to JLabel
 	    p2.add(label4);
-	    
+
+//		jLabel.setText(text_str);
 		// 對話框
 		JLabel jLabel = new JLabel();
-		jLabel.setText(text_str);
 		jLabel.setBackground(Color.BLUE);
 		jLabel.setBorder(BorderFactory.createLineBorder(Color.black));
 		jLabel.setBounds(10, 300, 460, 50);
+		
+		sText = new Thread(new Runnable(){
+			public void run() {
+				for(int i=0;i<text_str.length();i++) {
+					char c = text_str.charAt(i);
+					jLabel.setText(jLabel.getText() + c);
+					try {
+						Thread.sleep(1000);
+					}catch(InterruptedException e){
+						e.printStackTrace();
+					}
+				}
+			}});
+	   	
+		
    		p2.add(jLabel);
    		// 選擇按鈕
    		ans1 = new JButton(ans1_str);
@@ -118,6 +135,7 @@ public class DrawFrame extends JFrame implements ActionListener{
 			this.remove(p1);
 			this.add(p2);
 			this.revalidate();
+			sText.start();
 			p2.music_start();
 		}else if(e.getSource()==ans1) {
 			System.out.println("bt1");
@@ -125,6 +143,7 @@ public class DrawFrame extends JFrame implements ActionListener{
 		}else if(e.getSource()==ans2) {
 			System.out.println("bt2");
 			sqrt(2);
+			
 		}else if(e.getSource()==music) {
 			this.setMusic_b(!music_b);
 			p2.music_open_close(music_b);
